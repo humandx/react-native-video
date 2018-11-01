@@ -131,7 +131,7 @@ class VideoEventEmitter {
     }
 
     void load(double duration, double currentPosition, int videoWidth, int videoHeight,
-              WritableArray audioTracks, WritableArray textTracks, , int rotation) {
+              WritableArray audioTracks, WritableArray textTracks, int rotation) {
         WritableMap event = Arguments.createMap();
         event.putDouble(EVENT_PROP_DURATION, duration / 1000D);
         event.putDouble(EVENT_PROP_CURRENT_TIME, currentPosition / 1000D);
@@ -157,7 +157,7 @@ class VideoEventEmitter {
             naturalSize.putInt(EVENT_PROP_WIDTH, videoHeight);
             naturalSize.putInt(EVENT_PROP_HEIGHT, videoWidth);
         }
-        
+
         event.putMap(EVENT_PROP_NATURAL_SIZE, naturalSize);
         event.putArray(EVENT_PROP_AUDIO_TRACKS, audioTracks);
         event.putArray(EVENT_PROP_TEXT_TRACKS, textTracks);
